@@ -115,4 +115,39 @@ public class PlayerDao extends TeamDao {
 		      System.out.println("Deleted Record with ID = " + id );
 		      return;
 	}
+	   
+	   public void getAll( int id) throws Exception
+		{
+
+			Connection con=Myconfiguration.getConnection();
+			PreparedStatement ps=con.prepareStatement("Select p.Pname,t.Teamname,t.coachname,TIMESTAMPDIFF(YEAR, DateofBirth, CURDATE()) AS age from Player as p Right join Team as t on p.Teamid=t.Teamid where p.Player_id=?");
+			ps.setInt(1, id);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				String name=rs.getNString(1);
+				String n=rs.getString(2);
+				String cn=rs.getString(3);
+				String dob=rs.getString(4);
+				System.out.println(name+" "+n+" "+cn+" "+dob+"\n");
+				
+			}
+		}
+	   
+	   public void getAllPlayers(String name) throws Exception
+		{
+			Connection con=Myconfiguration.getConnection();
+			PreparedStatement ps=con.prepareStatement("Select p.Pname,t.Teamname,t.coachname,TIMESTAMPDIFF(YEAR, DateofBirth, CURDATE()) AS age from Player as p Right join Team as t on p.Teamid=t.Teamid where p.Pname=?");
+			ps.setString(1, name);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				String name1=rs.getNString(1);
+				String n=rs.getString(2);
+				String cn=rs.getString(3);
+				String dob=rs.getString(4);
+				System.out.println(name1+" "+n+" "+cn+" "+dob+"\n");
+				
+			}
+		}
 }

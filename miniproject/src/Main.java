@@ -14,13 +14,15 @@ public class Main {
 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 System.out.println("Enter the operation number");
 System.out.println("1: Insert Team And Player Details");
-System.out.println("2:Update the Player Details");
+System.out.println("2: Update the Player Details");
 System.out.println("3: View All Players");
 System.out.println("4: Players based on Team");
 System.out.println("5: Players based on Team and Skills");
 System.out.println("6: Update the Team Details");
 System.out.println("7: Delete the Player");
 System.out.println("8: Delete the Team");
+System.out.println("9: Search Player by id");
+System.out.println("10:Search player by Name");
 int n=Integer.parseInt(br.readLine());
 switch(n)
 {
@@ -146,9 +148,19 @@ case 8:
    TeamDao td2=new TeamDao();
    td2.deleteTeam(id);
    break;
+case 9:
+	System.out.println("Enter Id to search");
+	 id=Integer.parseInt(br.readLine());
+	   PlayerDao pd7=new PlayerDao();
+	   pd7.getAll(id);
+case 10:
+	System.out.println("Enter player name to search");
+	String Playername=br.readLine();
+	   PlayerDao pd8=new PlayerDao();
+	   pd8.getAllPlayers(Playername);
 default:
 	System.out.println("Nothing to select");
-
+	
 }
 
 	}
