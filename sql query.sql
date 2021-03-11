@@ -25,7 +25,21 @@ delete from Team
   
    Select p.Player_id,p.Pname from Player as p left join Team as t on t.Teamid=p.Teamid where p.skills like "ss%" and t.Teamname like "kkr%";
                                                                                                                                   
-                                                                                                                                  SELECT * FROM sqlactivity3.player;
+ SELECT * FROM sqlactivity3.auction;CREATE TABLE `auction` (
+  `Auctid` int NOT NULL AUTO_INCREMENT,
+  `Player_id` int NOT NULL,
+  `Teamid` int NOT NULL,
+  `Actyear` int DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  PRIMARY KEY (`Auctid`),
+  KEY `Teamid` (`Teamid`),
+  KEY `Player_id` (`Player_id`),
+  CONSTRAINT `auction_ibfk_1` FOREIGN KEY (`Teamid`) REFERENCES `team` (`Teamid`),
+  CONSTRAINT `auction_ibfk_2` FOREIGN KEY (`Player_id`) REFERENCES `player` (`Player_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                                                                                                               
+                                                                                                                                  
+SELECT * FROM sqlactivity3.player;
 
 use sqlactivity3;
 CREATE TABLE `USER` (
