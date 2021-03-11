@@ -24,4 +24,20 @@ delete from Team
   
   
    Select p.Player_id,p.Pname from Player as p left join Team as t on t.Teamid=p.Teamid where p.skills like "ss%" and t.Teamname like "kkr%";
+                                                                                                                                  
+                                                                                                                                  SELECT * FROM sqlactivity3.player;
+
+use sqlactivity3;
+CREATE TABLE `USER` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `regdate` date NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+select * from USER
   
